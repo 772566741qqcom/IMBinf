@@ -1,0 +1,14 @@
+option java_package = "me.binf.im.protobuf"; //定义protobuf的包名称空间
+option java_outer_classname = "MessageProto";// 消息体名称
+
+/*顶层消息*/
+message Message
+{
+	required int32  header = 1;					// 用户ID
+	optional string content = 2;					// 消息内容
+}
+
+
+
+
+

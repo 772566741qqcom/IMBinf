@@ -1,0 +1,10 @@
+# Maven #
+target/
+bin/
+
+# IDEA #
+.idea/
+.svn/
+*.iml
+
+# PROJECT #
