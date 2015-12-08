@@ -56,8 +56,8 @@ public class ChatClient {
                     break;
                 }
                 Message.Builder msg2 =  Message.newBuilder();
-                msg2.setHeader(101);
-                msg2.setContent("客户端说:"+line);
+//                msg2.setHeader(101);
+//                msg2.setContent("客户端说:"+line);
                 Message msgSend = msg2.build();
                 // Sends the received line to the server.
                 lastWriteFuture = ch.writeAndFlush(msgSend);

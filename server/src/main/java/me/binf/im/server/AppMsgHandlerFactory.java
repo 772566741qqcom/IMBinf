@@ -11,14 +11,7 @@ import me.binf.im.server.msg.handler.impl.ChatHandler;
 public class AppMsgHandlerFactory {
 
     public static AppMsgHandler getAppMsgHandler(Message msg) {
-
-        int header = msg.getHeader();
-        if (header == 101) {
-            // 登录
-            return new ChatHandler();
-        } else {
-            return null;
-        }
+        return null;
     }
 
 }

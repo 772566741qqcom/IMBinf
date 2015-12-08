@@ -48,7 +48,7 @@ public class ProtobufDecoder extends ByteToMessageDecoder{
             Log.info("[APP-SERVER][RECV][remoteAddress:"
                     + ctx.channel().remoteAddress() + "][total length:"
                     + length + "][bare length:" + msg.getSerializedSize()
-                    + "]:\r\n" + msg.getContent());
+                    + "]:\r\n" );
             if (msg != null) {
                 // 获取业务消息头
                 out.add(msg);

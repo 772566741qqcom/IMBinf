@@ -2,9 +2,8 @@ package me.binf.im.server.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import me.binf.im.server.AppMsgHandlerFactory;
+import me.binf.im.server.router.MessageRouter;
 import me.binf.im.server.manager.LogTAGManager;
-import me.binf.im.server.msg.handler.AppMsgHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import me.binf.im.protobuf.MessageProto.Message;
@@ -21,14 +20,9 @@ public class AppServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(final ChannelHandlerContext ctx, Object msg) throws Exception {
         Message receiveMsg = (Message) msg;
-        AppMsgHandler msgHandler = AppMsgHandlerFactory.getAppMsgHandler(receiveMsg);
-        if (msgHandler != null) {
-            msgHandler.process(ctx.channel(), receiveMsg);
-        } else {
-            // 没找到相应的handler
-            Log.error("no handler:" + receiveMsg.toString());
-        }
-
+        MessageRouter messageRouter =  new MessageRouter();
+        Message sendMessage =  messageRouter.route(receiveMsg);
+        ctx.channel().writeAndFlush(sendMessage);
     }
 
     @Override

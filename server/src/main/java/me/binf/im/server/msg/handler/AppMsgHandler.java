@@ -18,4 +18,6 @@ public interface AppMsgHandler {
 	 */
 	public void process(Channel channel, Message msg);
 
+	public Message handle(Message msg);
+
 }

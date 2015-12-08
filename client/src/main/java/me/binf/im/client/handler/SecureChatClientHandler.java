@@ -26,7 +26,7 @@ public class SecureChatClientHandler extends SimpleChannelInboundHandler<Message
 
     @Override
     public void channelRead0(ChannelHandlerContext ctx, Message msg) throws Exception {
-        System.err.println(msg.getContent());
+//        System.err.println(msg.getContent());
     }
 
     @Override

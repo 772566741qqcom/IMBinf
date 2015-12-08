@@ -18,13 +18,19 @@ public class ChatHandler implements AppMsgHandler {
 
         try {
             Message.Builder msg2 =  Message.newBuilder();
-            msg2.setHeader(201);
-            msg2.setContent("服务器说:"+msg.getContent());
+            msg2.setHeader(MessageProto.MSG.Login_Request);
+
+
             Message msgSend = msg2.build();
             channel.writeAndFlush(msgSend);
         }catch (Exception e){
             Log.error(e.getMessage(), e);
         }
 
+    }
+
+    @Override
+    public Message handle(Message msg) {
+        return null;
     }
 }
